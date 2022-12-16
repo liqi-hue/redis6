@@ -11,4 +11,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface UserService extends IService<User> {
 
     void addUser(User user);
+
+    void deleteUser(Integer id);
+
+    void updateUser(User user);
+
+    User findUserById(Integer id);
 }

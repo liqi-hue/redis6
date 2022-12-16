@@ -1,5 +1,6 @@
 package com.atguigu.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.util.Date;
@@ -11,10 +12,12 @@ import java.util.Date;
 @TableName("t_user")
 public class User {
 
+    @TableId
     private Integer id;
     private String username;
     private String password;
     private byte sex;
+//    @TableLogic(delval = "1")
     private byte deleted;
     private Date updateTime;
     private Date createTime;
