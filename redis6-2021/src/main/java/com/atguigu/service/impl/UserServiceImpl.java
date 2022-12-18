@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author: liqi
@@ -72,7 +73,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         }
         return user;
     }
-
+    //解决高并发存在缓存击穿的问题
     public User findUserById2(Integer id) {
         String key = CACHE_KEY_USER + id;
         //先查redis,无数据查mysql
@@ -87,7 +88,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
                         return user;
                     } else {
                         //mysql有数据写入redis
-                        redisTemplate.opsForValue().set(key, user);
+                        redisTemplate.opsForValue().setIfAbsent(key, user,7L, TimeUnit.DAYS);
                     }
                 }
             }
