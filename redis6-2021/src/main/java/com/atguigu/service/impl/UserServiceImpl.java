@@ -89,6 +89,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
                     } else {
                         //mysql有数据写入redis
                         redisTemplate.opsForValue().setIfAbsent(key, user,7L, TimeUnit.DAYS);
+                        return user;
                     }
                 }
             }

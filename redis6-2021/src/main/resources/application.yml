@@ -1,5 +1,5 @@
 server:
-  port: 8800
+  port: 8900
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 查看日志
@@ -10,7 +10,7 @@ spring:
     username: root
     password: root
   redis:
-    host: 192.168.220.140
+    host: 124.223.78.24
     port: 6379
     database: 0
     connect-timeout: 1800000
@@ -20,3 +20,4 @@ spring:
         max-wait: 1
         max-idle: 5
         min-idle: 0
+    password: JP1R5MAR3Orh

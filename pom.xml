@@ -13,7 +13,6 @@
     <artifactId>redis6</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>mybatis-generator</module>
         <module>redis6-2021</module>
     </modules>
     <packaging>pom</packaging>
